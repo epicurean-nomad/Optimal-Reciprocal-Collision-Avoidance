@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="Toll_Gate">
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <gui fullscreen='0'>
+      <plugin name='keyboard' filename='libKeyboardGUIPlugin.so'/>
+      <camera name="user_camera">
+        <pose>89.90 -309.03 10.39 0 0.24 1.63</pose>
+      </camera>
+    </gui>
+
+    <model name="my_model">
+      <pose>0 0 0 1.576 0 0</pose>   <!--1.5708 for rotating 90 degrees anti clock wise-->
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/abhigyan/catkin_ws/src/Simulations/traffic_simulator/untitled.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+          <ambient>0.2 0.2 0.8 1</ambient> <!-- Adjust the RGB values for the ambient color -->
+          <diffuse>0.2 0.2 0.8 1</diffuse> <!-- Adjust the RGB values for the diffuse color -->
+          <specular>0 0 0 1</specular> <!-- Adjust the RGB values for the specular color -->
+          <emissive>0 0 0 1</emissive> <!-- Adjust the RGB values for the emissive color -->
+        </material>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>/home/abhigyan/catkin_ws/src/Simulations/traffic_simulator/untitled.obj</uri>
+            </mesh>
+          </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/white</name>
+                    <uri>file://media/materials/scripts/gazebo.material</uri>
+                    <ambient>1 1 1 1</ambient>
+                    <diffuse>1 0 0 1</diffuse> <!-- Red color, RGB values: 1 0 0 -->
+                    <specular>0.1 0.1 0.1 1</specular>
+                    <emissive>0 0 0 0</emissive>
+                    <shader>gazebo/glsl</shader>
+                    <color>1 0 0 1</color>
+                </script>
+            </material>
+        </visual>
+      </link>
+    </model>
+
+      </world>
+</sdf>
